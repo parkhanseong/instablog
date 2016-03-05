@@ -1,0 +1,17 @@
+{% load bootstrap3 %}
+
+<form method="POST" action="" class="form-horizontal">
+  {% csrf_token %}
+<div class="comment_container">
+  {% for comment in comments %}
+  <div class="comment_info">{{comment.pk}}{{comment.user}}{{comment.created_at}}</div>
+  <div class="comment_content">{{comment.content}}</div>
+  <p>
+  {% bootstrap_button "삭제" button_type="submit" button_class="btn-primary" %}
+  </p>
+
+  {% empty %}
+  <p>댓글 없음.</p>
+  {% endfor %}
+</div>
+  </form>

@@ -1,0 +1,29 @@
+{% extends 'blog_layout.html' %}
+{% load bootstrap3 %}
+
+{% block page_title %}삭제하기{% endblock %}
+
+{% block content %}
+    <h3>{{ post.title }}</h3>
+    <form method="POST" action="" >
+        {% csrf_token %}
+
+        <div class = 'post_content'>
+        내용 : {{post.content}}
+        </div>
+
+      <div>
+        <p> 글 갈 래 : {{post.category.name}}</p>
+        <p> 작성일시 : {{post.created_at|date:"Y-m-d"}}</p>
+      </div>
+      </div>
+
+        <p>
+            위 글을 삭제하시겠습니까?
+        </p>
+        <p>
+        {% bootstrap_button "삭제" button_type="submit" button_class="btn-primary" %}
+        </p>
+    </form>
+
+{% endblock %}

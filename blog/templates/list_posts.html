@@ -1,0 +1,35 @@
+{% extends 'blog_layout.html' %}
+{% load bootstrap3 %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>글 목록123123</title>
+        <meta charset="UTF-8" />
+     </head>
+
+     <body>
+
+{% block page_title %}글 목록{% endblock %}
+
+{% block content %}
+
+      {% for post in posts %}
+  <div class = 'post_container'>
+      <h3><a href="{% url 'view_post' pk=post.pk %}">{{post.title}}</a></h3>
+
+    <div class = 'post_content'>
+      {{post.content}}
+    </div>
+    <div>
+    <p> 글 갈 래 : {{post.category.name}}</p>
+    <p> 작성일시 : {{post.created_at}}</p>
+</div>
+  </div>
+  {% empty %}
+  <p>글이 전혀 없습니다.</p>
+  {% endfor %}
+
+{% bootstrap_pagination posts %}
+
+{% endblock %}

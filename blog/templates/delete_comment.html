@@ -1,0 +1,29 @@
+{% extends 'blog_layout.html' %}
+{% load bootstrap3 %}
+
+{% block page_title %}댓글 삭제하기{% endblock %}
+
+{% block content %}
+    <h3>{{ post.title }}</h3>
+    <form method="POST" action="" >
+        {% csrf_token %}
+
+        <div class = 'comment_content'>
+        댓글내용 : {{comment.content}}
+        </div>
+
+      <div>
+
+        <p> 작성일시 : {{comment.created_at|date:"Y-m-d"}}</p>
+      </div>
+      </div>
+
+        <p>
+            위 댓글을 삭제하시겠습니까?
+        </p>
+        <p>
+        {% bootstrap_button "삭제" button_type="submit" button_class="btn-primary" %}
+        </p>
+    </form>
+
+{% endblock %}
