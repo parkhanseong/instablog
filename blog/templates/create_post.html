@@ -8,27 +8,23 @@
         <form method="POST" action="" class="form-horizontal">
             {% csrf_token %}
             <div class="form-group form-group-sm">
-                <p>
+                <!-- <p>
                   <label>카테고리</label>
                     <select name="category">
                     {% for category in categories %}
                     <option value="{{ category.pk }}">{{ category.name }}</option>
                     {% endfor %}
                     </select>
-                </p>
-                <p>
-                <label for="id_title">글 제목</label>
-                <input type="text" name="title" id="id_title" />
-                </p>
-                <p>
-                <label>내용</label>
-                <textarea name="content" style="width:70%; height:200px"></textarea>
-                </p>
+                </p> -->
+
+                <!-- form.as_p 는 froms에서 불러옴. -->
+                {{form.as_p}}
+                <!-- as_table 등등도 있음. -->
 
                 <p>
                 {% bootstrap_button "저장" button_type="submit" button_class="btn-primary" %}
                 </p>
-                
+
             </div>
         </form>
 

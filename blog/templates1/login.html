@@ -1,0 +1,17 @@
+<form method="POST" action="{% url 'login_url' %}">
+    {% csrf_token %}
+     <input type="hidden" name="next" value="{{ next }}" />
+
+    <p>
+      {{ form.username.label_tag }}
+      {{ form.username }}
+    </p>
+    <p>
+        {{ form.password.label_tag }}
+        {{ form.password }}
+    </p>
+    <p>
+        <button type="submit">로그인</button>
+     </p>
+
+ </form>

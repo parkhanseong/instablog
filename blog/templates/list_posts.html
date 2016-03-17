@@ -16,7 +16,8 @@
 
       {% for post in posts %}
   <div class = 'post_container'>
-      <h3><a href="{% url 'view_post' pk=post.pk %}">{{post.title}}</a></h3>
+      <h3><a href="{% url 'view_post' pk=post.pk %}">
+        PK: {{post.pk}} / 제목 :{{post.title}}</a></h3>
 
     <div class = 'post_content'>
       {{post.content}}
